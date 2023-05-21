@@ -23,11 +23,11 @@ class Course extends Model
     }
 
     public function teacher() {
-        return $this->hasOne(Professor::class);
+        return $this->belongsTo(Professor::class);
     }
 
     public function planning() {
-        return $this->belongsTo(Planning::class);
+        return $this->hasMany(Planning::class);
     }
 
 

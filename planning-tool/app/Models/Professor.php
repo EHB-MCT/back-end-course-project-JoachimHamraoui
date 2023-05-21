@@ -17,7 +17,7 @@ class Professor extends Model
     ];
 
 
-    public function teaches() {
-        return $this->belongsToMany(Course::class);
+    public function course() {
+        return $this->hasOne(Course::class);
     }
 }
