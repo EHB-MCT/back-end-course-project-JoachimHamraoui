@@ -70,6 +70,35 @@ Route::middleware(['auth', 'admin'])->group(function () {
             AdminController::class, "dashboard"
         ])->name('dashboard');
 
+        Route::group(['prefix' => 'teachers'], function () {
+
+            Route::get('/', [
+                AdminController::class, "getTeachers"
+            ])->name('teachers');
+
+            Route::get('/edit/{id}', [
+                AdminController::class, "getEditTeachers"
+            ])->name('teacheredit');
+
+            Route::post('/teacherupdate', [
+                AdminController::class, "postUpdateTeacher"
+            ])->name('teacherupdate');
+
+            Route::get('/teachercreate', [
+                AdminController::class, "getCreateTeacher"
+            ])->name('teachercreate');
+
+            Route::post('/postteacher', [
+                AdminController::class, "postCreateTeacher"
+            ])->name('postteacher');
+
+            Route::get('/deleteteacher/{id}', [
+                AdminController::class, "getDeleteTeacher"
+            ])->name('teacherdelete');
+
+        });
+
+
     });
 });
 

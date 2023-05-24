@@ -16,7 +16,7 @@
     </head>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Planning</a>
+        <a class="navbar-brand" href="#">Admin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,35 +24,30 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('planning') }}">Planning</a>
+                    <a class="nav-link" href="{{ route('planning') }}">Back</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                    <a class="nav-link" href="{{ route('login') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    <a class="nav-link" href="{{ route('login') }}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">Admin</a>
+                    <a class="nav-link" href="{{ route('teachers') }}">Teachers</a>
                 </li>
                 <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="POST">
+                    <a class="nav-link" href="{{ route('login') }}">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Plan a course</a>
+                </li>
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST" style="margin-bottom: 0px;">
                         @csrf
-                        <button type="submit" class="nav-item">Log Out</button>
+                        <button type="submit" class="nav-link">Log Out</button>
                     </form>
                 </li>
             </ul>
-
-            <div class="navbar-nav">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle bg-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        User
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right bg-light">
-                        <li><a class="dropdown-item" href="#">Log Out</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </nav>
 

@@ -6,3 +6,9 @@ h5 {
     display: flex !important;
     flex-direction: column !important;
 }
+
+button.nav-item {
+    border: none !important;
+    background: none !important;
+    color: #efefef !important;
+}
