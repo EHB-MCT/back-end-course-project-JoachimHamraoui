@@ -36,9 +36,9 @@
                     <a class="nav-link" href="{{ route('dashboard') }}">Admin</a>
                 </li>
                 <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST" style="margin-bottom: 0px;">
                         @csrf
-                        <button type="submit" class="nav-item">Log Out</button>
+                        <button type="submit" class="nav-link">Log Out</button>
                     </form>
                 </li>
             </ul>
