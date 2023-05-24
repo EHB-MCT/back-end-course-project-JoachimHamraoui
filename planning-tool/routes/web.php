@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlanningController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,33 +75,50 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::group(['prefix' => 'teachers'], function () {
 
             Route::get('/', [
-                AdminController::class, "getTeachers"
+                TeacherController::class, "getTeachers"
             ])->name('teachers');
 
             Route::get('/edit/{id}', [
-                AdminController::class, "getEditTeachers"
+                TeacherController::class, "getEditTeachers"
             ])->name('teacheredit');
 
             Route::post('/teacherupdate', [
-                AdminController::class, "postUpdateTeacher"
+                TeacherController::class, "postUpdateTeacher"
             ])->name('teacherupdate');
 
             Route::get('/teachercreate', [
-                AdminController::class, "getCreateTeacher"
+                TeacherController::class, "getCreateTeacher"
             ])->name('teachercreate');
 
             Route::post('/postteacher', [
-                AdminController::class, "postCreateTeacher"
+                TeacherController::class, "postCreateTeacher"
             ])->name('postteacher');
 
             Route::get('/deleteteacher/{id}', [
-                AdminController::class, "getDeleteTeacher"
+                TeacherController::class, "getDeleteTeacher"
             ])->name('teacherdelete');
+
+        });
+
+        Route::group(['prefix', 'users'], function () {
+
+            Route::get('/', [
+                UserController::class, "getUsers"
+            ])->name('users');
+
+            Route::get('/edit/{id}', [
+                UserController::class, "getEditUser"
+            ])->name('useredit');
+
+            Route::post('/userupdate', [
+                UserController::class, "postUpdateUser"
+            ])->name('userupdate');
 
         });
 
 
     });
+
 });
 
 
