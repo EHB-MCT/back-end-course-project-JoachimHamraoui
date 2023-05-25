@@ -149,11 +149,27 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
         });
 
-        Route::group(['prefix' => 'plan'], function () {
+        Route::group(['prefix' => 'planning'], function () {
 
             Route::post('/postplanning', [
                 PlanningController::class, "postPlanCourse"
             ])->name('postplancourse');
+
+            Route::get('/', [
+                PlanningController::class, "getAdminPlanning"
+            ])->name('editplanning');
+
+            Route::get('/edit/{id}', [
+                PlanningController::class, "getEditSession"
+            ])->name('sessionedit');
+
+            Route::post('/courseupdate', [
+                PlanningController::class, "postEditSession"
+            ])->name('posteditplanning');
+
+            Route::get('/deletesession/{id}', [
+                PlanningController::class, "getDeleteSession"
+            ])->name('sessiondelete');
 
         });
 

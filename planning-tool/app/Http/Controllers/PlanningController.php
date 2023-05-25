@@ -26,19 +26,16 @@ class PlanningController extends Controller
 
         // get all info on sessions with Course name
         $sessions = Planning::orderBy('date', 'asc')->get();
-        foreach ($sessions as $session) {
-            $session = Planning::where('id', $session['course_id'])->first();
-        }
         //$coursedetails = Course::where('id', $session['course_id'])->first();
 
 
-        $getAllCourses = Course::orderBy('id', 'desc')->get();
+        /*$getAllCourses = Course::orderBy('id', 'desc')->get();
         foreach ($getAllCourses as $getCourse) {
             $getCourse = Course::where('professor_id', $getCourse['professor_id'])->first();
         }
-        $teachers = Professor::where('id', $getCourse['professor_id'])->first();
+        $teachers = Professor::where('id', $getCourse['professor_id'])->first();**/
 
-        return view('content.planning', ['sessions' => $sessions, 'teachers' => $teachers, 'firstName' => $firstName]);
+        return view('content.planning', ['sessions' => $sessions, 'firstName' => $firstName]);
     }
 
     public function getPlannedCourse($id){
@@ -80,11 +77,43 @@ class PlanningController extends Controller
             $planCourse->save();
         }
 
-        return redirect()->route('courses');
+        return redirect()->route('editplanning');
 
     }
 
+    public function getAdminPlanning() {
+        $sessions = Planning::orderBy('date', 'asc')->get();
+        return view('admin.planning.planning', ['sessions' => $sessions]);
+    }
 
+    public function getEditSession($id) {
+
+        $session = Planning::find($id);
+        return view('admin.planning.editplanning', ['session' => $session]);
+
+    }
+
+    public function postEditSession(Request $request) {
+
+        $session = Planning::find($request->input('id'));
+
+        $session->date = $request->input('date');
+        $session->location = $request->input('location');
+        $session->startTime = $request->input('startTime');
+        $session->endTime = $request->input('endTime');
+
+        $session->save();
+
+        return redirect()->route('editplanning');
+
+    }
+
+    public function getDeleteSession($id) {
+        $session = Planning::find($id);
+        $session->delete();
+
+        return redirect()->action([PlanningController::class, "getAdminPlanning"]);
+    }
 
 
 
