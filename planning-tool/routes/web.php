@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +69,7 @@ Route::group(['prefix' => 'authentication'], function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::group(['prefix' => 'admin'], function () {
 
-        Route::get('/dashboard', [
+        Route::get('/', [
             AdminController::class, "dashboard"
         ])->name('dashboard');
 
@@ -100,7 +101,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
         });
 
-        Route::group(['prefix', 'users'], function () {
+        Route::group(['prefix' => 'users'], function () {
 
             Route::get('/', [
                 UserController::class, "getUsers"
@@ -113,6 +114,44 @@ Route::middleware(['auth', 'admin'])->group(function () {
             Route::post('/userupdate', [
                 UserController::class, "postUpdateUser"
             ])->name('userupdate');
+
+        });
+
+        Route::group(['prefix' => 'courses'], function () {
+
+            Route::get('/', [
+                CourseController::class, "getCourses"
+            ])->name('courses');
+
+            Route::get('/edit/{id}', [
+                CourseController::class, "getEditCourse"
+            ])->name('courseedit');
+
+            Route::post('/courseupdate', [
+                CourseController::class, "postUpdateCourse"
+            ])->name('courseupdate');
+
+            Route::get('/create', [
+                CourseController::class, "getCreateCourse"
+            ])->name('coursecreate');
+
+            Route::post('/postcourse', [
+                CourseController::class, "postCreateCourse"
+            ])->name('postcreatecourse');
+
+            Route::get('/deletecourse/{id}', [
+                CourseController::class, "getDeleteCourse"
+            ])->name('coursedelete');
+
+            Route::get('/plan/{id}', [
+                PlanningController::class, "getPlanCourse"
+            ])->name('plancourse');
+
+        });
+
+        Route::group(['prefix' => 'plan'], function () {
+
+
 
         });
 

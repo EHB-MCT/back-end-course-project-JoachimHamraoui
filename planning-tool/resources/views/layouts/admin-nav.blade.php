@@ -36,7 +36,7 @@
                     <a class="nav-link" href="{{ route('teachers') }}">Teachers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Courses</a>
+                    <a class="nav-link" href="{{ route('courses') }}">Courses</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">Plan a course</a>

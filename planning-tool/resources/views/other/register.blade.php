@@ -11,22 +11,22 @@
 @endif
 
 <div class="container-md mt-4">
-    <form class="form-group" method="post" action="{{route('usercreate')}}">
+    <form method="post" action="{{route('usercreate')}}">
         <div class="form-group">
             <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="firstName">
+            <input type="text" class="form-control" name="firstName" id="firstName">
         </div>
         <div class="form-group">
             <label for="lastName">Last name</label>
-            <input type="text" name="lastName" id="lastName">
+            <input type="text" class="form-control" name="lastName" id="lastName">
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email">
+            <input type="text" class="form-control" name="email" id="email">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" name="password" id="password">
+            <input type="text" class="form-control" name="password" id="password">
         </div>
         @csrf
         <button type="submit" class="btn btn-primary">Submit</button>

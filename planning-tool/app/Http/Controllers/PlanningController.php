@@ -51,6 +51,11 @@ class PlanningController extends Controller
         return view('content.planned-course', ['plannedcourse' => $plannedcourse, 'coursedetails' => $coursedetails, 'courseteacher' => $courseteacher, 'firstName' => $firstName]);
     }
 
+    public function getPlanCourse($id) {
+        $course = Course::find($id);
+        return view('admin.planning.plancourse', ['course', $course]);
+    }
+
 
 
 
