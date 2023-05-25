@@ -16,7 +16,7 @@
                     <h5>{{ $course->description }}</h5>
                     <a href="{{ route('courseedit', ['id' => $course->id]) }}" class="btn btn-success btn-md success col-2" >Edit</a>
                     <a href="{{ route('coursedelete', ['id' => $course->id]) }}" class="btn btn-danger btn-xs success col-2" >Delete</a>
-                    <a href="" class="btn btn-light btn-xs light col-2" >Plan</a>
+                    <a href="{{ route('plancourse', ['id' => $course->id]) }}" class="btn btn-light btn-xs light col-2" >Plan</a>
                 </div>
             @endforeach
         </div>

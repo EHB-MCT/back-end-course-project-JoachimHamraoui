@@ -151,7 +151,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
         Route::group(['prefix' => 'plan'], function () {
 
-
+            Route::post('/postplanning', [
+                PlanningController::class, "postPlanCourse"
+            ])->name('postplancourse');
 
         });
 

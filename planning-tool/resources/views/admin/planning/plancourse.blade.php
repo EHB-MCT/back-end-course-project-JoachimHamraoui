@@ -7,37 +7,44 @@
     @yield('navigation')
 
     <div class="container-md">
-        <form method="post" action="{{route('postcreatecourse')}}">
+        <form method="post" action="{{route('postplancourse')}}">
             <div class="form-group">
                 <label for="name">Course</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" value="{{ $course->name }}" disabled>
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" name="description">
+                <label for="date">Start of course</label>
+                <input type="date" class="form-control" id="date" name="date">
             </div>
             <div class="form-group">
-                <label for="teacher">Teacher</label>
-                <select class="form-select" aria-label="default select example" name="teacher" id="teacher">
-                    @foreach($teachers as $teacher)
-                        <option value="{{ $teacher->id }}">{{ $teacher->firstName }} {{ $teacher->lastName }}</option>
-                    @endforeach
+                <label for="location">Location</label>
+                <select class="form-select" aria-label="default select example" name="location" id="location">
+                    <option value="A101">A101</option>
+                    <option value="A103">A103</option>
+                    <option value="A108">A108</option>
+                    <option value="B101">B101</option>
+                    <option value="B103">B103</option>
+                    <option value="B108">B108</option>
+                    <option value="B201">B201</option>
+                    <option value="B205">B205</option>
+                    <option value="B208">B208</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="semester">Semester</label>
-                <select class="form-select" aria-label="default select example" name="semester" id="semester">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                <label for="startTime">Start Time</label>
+                <select class="form-select" aria-label="default select example" name="startTime" id="startTime">
+                    <option value="09:00">09:00</option>
+                    <option value="14:00">14:00</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="nrSessions"># Sessions</label>
-                <input type="number" class="form-control" id="nrSessions" name="nrSessions" min="1" max="9">
+                <label for="endTime">End Time</label>
+                <select class="form-select" aria-label="default select example" name="endTime" id="endTime">
+                    <option value="13:00">13:00</option>
+                    <option value="18:00">18:00</option>
+                </select>
             </div>
-            <input type="text" class="form-control" id="sessionLength" name="sessionLength" value="4" hidden>
+            <input type="number" class="form-control" id="course_id" name="course_id" value="{{ $course->id }}" hidden>
             @csrf
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
