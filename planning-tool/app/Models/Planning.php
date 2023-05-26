@@ -13,12 +13,14 @@ class Planning extends Model
         'course_id',
         'date',
         'sessionOfCourse',
-        'location'
+        'location',
+        'startTime',
+        'endTime'
     ];
 
 
-    public function lesson() {
-        return $this->hasMany(Course::class);
+    public function course() {
+        return $this->belongsTo(Course::class);
     }
 
 }
