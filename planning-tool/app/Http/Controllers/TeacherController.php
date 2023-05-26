@@ -34,7 +34,7 @@ class TeacherController extends Controller
         $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|unique:professors,email',
+            'email' => 'required',
             'password' => 'required|min:8',
         ]);
 
