@@ -37,6 +37,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}', [
             PlanningController::class, "getPlannedCourse"
         ])->name('lesson');
+
+        Route::get('/usercourseedit/{id}', [
+            UserController::class, "getEditUserCourses"
+        ])->name('usercourseeidt');
+
+        Route::post('/userupdate', [
+            UserController::class, "postUpdateUserCourse"
+        ])->name('userupdatecourse');
+
     });
 
 });

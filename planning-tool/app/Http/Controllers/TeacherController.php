@@ -31,6 +31,13 @@ class TeacherController extends Controller
 
         $teacher = Professor::find($request->input('id'));
 
+        $this->validate($request, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|unique:professors,email',
+            'password' => 'required|min:8',
+        ]);
+
         $teacher->firstName = $request->input('firstname');
         $teacher->lastName = $request->input('lastname');
         $teacher->email = $request->input('email');
@@ -48,6 +55,13 @@ class TeacherController extends Controller
     }
 
     public function postCreateTeacher(Request $request) {
+
+        $this->validate($request, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|unique:professors,email',
+            'password' => 'required|min:8',
+        ]);
 
         $teacher = new Professor([
             'firstName' => $request->input('firstname'),

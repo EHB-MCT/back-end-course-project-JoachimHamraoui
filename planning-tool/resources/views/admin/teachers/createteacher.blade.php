@@ -6,6 +6,14 @@
 
     @yield('navigation')
 
+    @include('partials.error')
+
+    @if(session('forminput'))
+        <div class="alert alert-success" role="alert">
+            Zoekertje aangemaakt met titel : {{ session('forminput') }}
+        </div>
+    @endif
+
     <div class="container-md">
         <form method="post" action="{{route('postteacher')}}">
             <div class="form-group">

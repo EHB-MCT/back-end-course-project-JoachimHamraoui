@@ -18,14 +18,25 @@ class PlanningController extends Controller
         $user = Auth::user();
         $firstName = $user->firstName;
 
+        $chosenCourse1 = Planning::where('course_id', $user->chosenCourse1)->get();
+        $chosenCourse2 = Planning::where('course_id', $user->chosenCourse2)->get();
+        $chosenCourse3 = Planning::where('course_id', $user->chosenCourse3)->get();
+
+        $courseIds = [$user->chosenCourse1, $user->chosenCourse2, $user->chosenCourse3];
+
+        //$arrayChosenCourses = [$chosenCourse1, $chosenCourse2, $chosenCourse3];
+
+
+
         if ($user->isAdmin()) {
             $firstName = "This user is an admin";
+            return redirect()->route('dashboard');
         }
 
         //$firstName = $user->firstName;
 
         // get all info on sessions with Course name
-        $sessions = Planning::orderBy('date', 'asc')->get();
+        $sessions = Planning::whereIn('course_id', $courseIds)->orderBy('date', 'asc')->get();;
         //$coursedetails = Course::where('id', $session['course_id'])->first();
 
 
@@ -35,7 +46,7 @@ class PlanningController extends Controller
         }
         $teachers = Professor::where('id', $getCourse['professor_id'])->first();**/
 
-        return view('content.planning', ['sessions' => $sessions, 'firstName' => $firstName]);
+        return view('content.planning', ['sessions' => $sessions ,'firstName' => $firstName, 'user' => $user]);
     }
 
     public function getPlannedCourse($id){

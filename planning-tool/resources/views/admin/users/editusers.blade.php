@@ -6,6 +6,14 @@
 
     @yield('navigation')
 
+    @include('partials.error')
+
+    @if(session('forminput'))
+        <div class="alert alert-success" role="alert">
+            Zoekertje aangemaakt met titel : {{ session('forminput') }}
+        </div>
+    @endif
+
     <div class="container-md">
         <form method="post" action="{{route('userupdate')}}">
             <div class="form-group">
@@ -24,7 +32,7 @@
                 <label for="role">Role</label>
                 <select class="form-select" aria-label="Default select example" name="role" id="role">
                     <option selected>{{ $user->role }}</option>
-                    <option value="user">User</option>
+                    <option value="student">Student</option>
                     <option value="admin">Admin</option>
                 </select>
             </div>

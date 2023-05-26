@@ -4,7 +4,16 @@
 
 @section('content')
 
+    @include('partials.error')
+
     @yield('navigation')
+
+    @if(session('forminput'))
+        <div class="alert alert-success" role="alert">
+            Zoekertje aangemaakt met titel : {{ session('forminput') }}
+        </div>
+    @endif
+
 
     <div class="container-md">
         <form method="post" action="{{route('teacherupdate')}}">
@@ -21,6 +30,7 @@
                 <input type="text" class="form-control" id="email" value="{{ $teacher->email }}" name="email">
             </div>
             @csrf
+            <input type="text" class="form-control" id="password" name="password" value="basepassword" hidden>
             <input type="hidden" name="id" value="{{ $teacher->id }}">
             <button type="submit" class="btn btn-primary">Submit</button>
 

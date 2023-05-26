@@ -1,5 +1,5 @@
 @section("navigation")
-    @include('layouts.nav')
+    @include('layouts.loginnav')
 @show
 
 @include('partials.error')
@@ -18,9 +18,10 @@
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" class="form-control" name="password" id="password">
+            <input type="password" class="form-control" name="password" id="password">
         </div>
         @csrf
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <a href="{{ route('register') }}"><button class="btn btn-link">Register</button></a>
 </div>

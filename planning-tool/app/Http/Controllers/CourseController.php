@@ -23,6 +23,15 @@ class CourseController extends Controller
 
     public function postCreateCourse(Request $request) {
 
+        $this->validate($request, [
+            'name' => 'required|unique:courses,name',
+            'description' => 'required',
+            'teacher' => 'required',
+            'semester' => 'required',
+            'nrSessions' => 'required',
+            'sessionLength' => 'required',
+        ]);
+
         $course = new Course([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -45,6 +54,12 @@ class CourseController extends Controller
     }
 
     public function postUpdateCourse(Request $request) {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'teacher' => 'required',
+        ]);
 
         $course = Course::find($request->input('id'));
 

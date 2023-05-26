@@ -4,7 +4,15 @@
 
 @section('content')
 
+    @include('partials.error')
+
     @yield('navigation')
+
+    @if(session('forminput'))
+        <div class="alert alert-success" role="alert">
+            Zoekertje aangemaakt met titel : {{ session('forminput') }}
+        </div>
+    @endif
 
     <div class="container-md">
         <form method="post" action="{{route('postcreatecourse')}}">

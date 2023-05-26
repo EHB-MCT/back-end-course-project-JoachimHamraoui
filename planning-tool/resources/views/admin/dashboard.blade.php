@@ -7,7 +7,7 @@
     @yield('navigation')
 
     <div class="container-md mt-4">
-        <h1 class="mb-4">Dashboaaard</h1>
+        <h1 class="mb-4">Dashboard</h1>
         <h4>As an administrator, you have some rights other users don't</h4>
         <h4>The rights include :</h4>
         <h4>Create</h4>
