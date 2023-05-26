@@ -22,7 +22,10 @@ class User extends Authenticatable
         'lastName',
         'email',
         'password',
-        'role'
+        'role',
+        'chosenCourse1',
+        'chosenCourse2',
+        'chosenCourse3',
     ];
 
     public function course() {

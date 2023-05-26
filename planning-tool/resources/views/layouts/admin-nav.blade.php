@@ -27,19 +27,19 @@
                     <a class="nav-link" href="{{ route('planning') }}">Back</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Dashboard</a>
+                    <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Users</a>
+                    <a class="nav-link" href="{{ route('users') }}">Users</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('teachers') }}">Teachers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Courses</a>
+                    <a class="nav-link" href="{{ route('courses') }}">Courses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Plan a course</a>
+                    <a class="nav-link" href="{{ route('editplanning') }}">Edit Planning</a>
                 </li>
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST" style="margin-bottom: 0px;">

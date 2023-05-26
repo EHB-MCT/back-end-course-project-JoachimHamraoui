@@ -17,24 +17,8 @@ class UserTable extends Seeder
             'firstName' => 'Joachim',
             'lastName' => 'Hamraoui',
             'email' => 'joachimhamraoui@gmail.com',
-            'password' => 'passwoord101',
-            'role' => 'student'
-        ]);
-        $user->save();
-        $user = new User([
-            'firstName' => 'Bilal',
-            'lastName' => 'Fawaz',
-            'email' => 'bilalfawaz@gmail.com',
-            'password' => 'passwoord101',
-            'role' => 'student'
-        ]);
-        $user->save();
-        $user = new User([
-            'firstName' => 'Amina',
-            'lastName' => 'Amzou',
-            'email' => 'tangeramina@gmail.com',
-            'password' => 'passwoord101',
-            'role' => 'student'
+            'password' => 'admin',
+            'role' => 'admin'
         ]);
         $user->save();
     }

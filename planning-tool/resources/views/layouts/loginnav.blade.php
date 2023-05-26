@@ -20,34 +20,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('planning') }}">Planning</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="POST" style="margin-bottom: 0px;">
-                        @csrf
-                        <button type="submit" class="nav-link">Log Out</button>
-                    </form>
-                </li>
-            </ul>
-
-            <div class="navbar-nav">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle bg-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        User
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right bg-light">
-                        <li><a class="dropdown-item" href="#">Log Out</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </nav>
 
 @endsection
