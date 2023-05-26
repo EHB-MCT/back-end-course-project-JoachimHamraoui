@@ -17,6 +17,8 @@ return new class extends Migration
             $table->date('date');
             $table->integer('sessionOfCourse');
             $table->string('location');
+            $table->string('startTime');
+            $table->string('endTime');
             $table->timestamps();
         });
     }

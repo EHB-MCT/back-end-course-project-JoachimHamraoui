@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserTable extends Seeder
 {
@@ -16,9 +17,12 @@ class UserTable extends Seeder
         $user = new User([
             'firstName' => 'Joachim',
             'lastName' => 'Hamraoui',
-            'email' => 'joachimhamraoui@gmail.com',
-            'password' => 'admin',
-            'role' => 'admin'
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin'),
+            'role' => 'admin',
+            'chosenCourse1' => 0,
+            'chosenCourse2' => 1,
+            'chosenCourse3' => 2
         ]);
         $user->save();
     }
